@@ -1,0 +1,183 @@
+/* set the font and background */
+body{
+    font-family: "poppins", serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* make sure header is aligned in a column */
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* make link same color even if visited */
+.nav_item a:visited{
+    color: #50C7C7;
+}
+
+/* make the headers for each card look a certain way*/
+.card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.card{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* set display for individual cards */
+.card{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+
+/* set display for entire pricing div */
+.pricing{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* set display for entire gallery*/
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gallery img{
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* large screen view */
+@media (min-width: 900px){
+    header{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    header > img{
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .nav_links{
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 275px;
+        height: fit-content;
+    }
+
+    .pricing{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* fix main header position*/
+body > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* padding so header doesn't overlap text */
+body{
+    padding-top: 175px;
+}
+
+/* create animated logo if users have no reduced motion preferance */
+@media(prefers-reduced-motion: no-preference){
+    #logo{
+        animation: logoanimation 5s forwards;
+    }
+}
+
+/* stop animation if user prefers reduced motion */
+@media(prefers-reduced-motion){
+    #logo{
+        width: 475px;
+    }
+}
+
+/* animate logo using keyframes */
+@keyframes logoanimation{
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* print view */
+@media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        gap: 100px
+    }
+
+    .pricing{
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 325px;
+        border: solid 2px #45ADDD;
+    }
+
+    #gallery {
+        display: none;
+    }
+
+    .gallery{
+        display: none;
+    }
+
+    h4::after{
+        content: "\1F44D";
+    }
+
+    .skip{
+        display: none;
+    }
+}
+
