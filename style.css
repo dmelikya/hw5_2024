@@ -19,7 +19,7 @@ header{
 
 /* make link same color even if visited */
 .nav_item a:visited{
-    color: #50C7C7;
+    color: blue;
 }
 
 /* make the headers for each card look a certain way*/
